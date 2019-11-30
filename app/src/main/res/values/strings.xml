@@ -21,4 +21,8 @@
     <string name="lat">Latitude :</string>
     <string name="lon">Longitude :</string>
 
+    <!--********MAP********-->
+    <string name="google_maps_key">AIzaSyC0wZWPoZu7yuW_bIEhq6dG5W4ZiMFolC0</string>
+    <string name="title_activity_google_maps">Map</string>
+
 </resources>

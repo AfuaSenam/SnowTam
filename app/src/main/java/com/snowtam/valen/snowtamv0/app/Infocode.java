@@ -2,9 +2,8 @@ package com.snowtam.valen.snowtamv0.app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -21,6 +20,7 @@ import java.util.ArrayList;
 public class Infocode extends Activity {
 
     private int id;
+    public static final String ID_SNOWTAM = "ID_SNOWTAM";
     private ArrayList<Snowtam> snowtams;
     private Snowtam selectedSnowtam;
 
@@ -58,7 +58,9 @@ public class Infocode extends Activity {
 
             }
             public void onSwipeBottom() {
-
+                Intent intent = new Intent(getApplicationContext(), GoogleMapsActivity.class);
+                intent.putExtra(ID_SNOWTAM, id);
+                startActivity(intent);
             }
 
         });
@@ -83,16 +85,21 @@ public class Infocode extends Activity {
 
         MAJAffSnowtam();
 
+        String toastTxt = "SWIPE\n" + "gauche/droite -> suivant/précédent\n" + "bas -> plan";
+        Toast toast = Toast.makeText(getApplicationContext(), toastTxt, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP, 0, 0);
+        toast.show();
+
     }
 
     private void MAJAffSnowtam(){
-
+        id = selectedSnowtam.getId();
         TVsnowtam_code.setText(selectedSnowtam.getOACI());
         TVsnowtam_name.setText(selectedSnowtam.getName());
         TVsnowtam_city.setText(selectedSnowtam.getCity());
         TVsnowtam_country.setText(selectedSnowtam.getCountry());
-        TVsnowtam_lat.setText(selectedSnowtam.getLat());
-        TVsnowtam_lon.setText(selectedSnowtam.getLon());
+        TVsnowtam_lat.setText("" + selectedSnowtam.getLat());
+        TVsnowtam_lon.setText("" + selectedSnowtam.getLon());
 
     }
 

@@ -2,17 +2,10 @@ package com.snowtam.valen.snowtamv0.app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.ColorSpace;
-import android.os.Debug;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,14 +13,16 @@ import android.widget.Toast;
 
 import com.snowtam.valen.snowtamv0.R;
 import com.snowtam.valen.snowtamv0.adaptater.StAdapter;
-import com.snowtam.valen.snowtamv0.model.OnSwipeTouchListener;
 import com.snowtam.valen.snowtamv0.model.SnotamListDetails;
 import com.snowtam.valen.snowtamv0.model.Snowtam;
 
 import java.util.ArrayList;
 
+import androidx.cardview.widget.CardView;
+
 public class MainActivity extends Activity {
 
+    private CardView cv;
 
     private ListView listView;
     private static ArrayList<Snowtam> snowtams;
@@ -98,8 +93,8 @@ public class MainActivity extends Activity {
                 "Le Mans",
                 "France",
                 snowtams.size(),
-                "48,0189222",
-                "0,1575925"
+                48.0189222,
+                0.1575925
         );
         ETsearch.setText("");
         snowtams.add(0, snowtam);

@@ -10,7 +10,7 @@ public class SnotamListDetails {
 
     Random r = new Random();
 
-    public static ArrayList<Snowtam> getList(){
+    public ArrayList<Snowtam> getList(){
         ArrayList<Snowtam> snowtams = new ArrayList<>();
         snowtams.add(new Snowtam(
                 "WSSS",
@@ -18,8 +18,8 @@ public class SnotamListDetails {
                 "Singapour",
                 "Singapour",
                 snowtams.size(),
-                "1,3644",
-                "103,9915"
+                1.3644,
+                103.9915
         ));
         snowtams.add(new Snowtam(
                 "RJTT",
@@ -27,8 +27,8 @@ public class SnotamListDetails {
                 "Tokyo",
                 "Japon",
                 snowtams.size(),
-                "35,5493",
-                "139,7798"
+                35.5493,
+                139.7798
         ));
         snowtams.add(new Snowtam(
                 "RKSI",
@@ -36,35 +36,35 @@ public class SnotamListDetails {
                 "Séoul",
                 "Corée du Sud",
                 snowtams.size(),
-                "126.4523792",
-                "37.4478107"
+                126.4523792,
+                37.4478107
         ));
         snowtams.add(new Snowtam(
-                "WSSS",
+                "OTHH",
                 "Aéroport international de Hamad",
                 "Doha",
                 "Qatar",
                 snowtams.size(),
-                "25,2608",
-                "51,6138"
+                25.2608,
+                51.6138
         ));
         snowtams.add(new Snowtam(
-                "WSSS",
+                "VHHH",
                 "Aéroport international de Hong Kong",
                 "Hong Kong",
                 "Chine",
                 snowtams.size(),
-                "22,308",
-                "113,9184"
+                22.308,
+                113.9184
         ));
         snowtams.add(new Snowtam(
-                "WSSS",
+                "LFPG",
                 "Paris Charles De Gaulle",
                 "Paris",
                 "France",
                 snowtams.size(),
-                "49,0097",
-                "2,5479"
+                49.0097,
+                2.5479
         ));
         return snowtams;
     }

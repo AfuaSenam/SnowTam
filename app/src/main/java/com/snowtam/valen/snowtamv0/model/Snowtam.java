@@ -6,10 +6,10 @@ public class Snowtam {
     String city;
     String country;
     int id;
-    String lat;
-    String lon;
+    double lat;
+    double lon;
 
-    public Snowtam(String OACI, String name, String city, String country, int id, String lat, String lon) {
+    public Snowtam(String OACI, String name, String city, String country, int id, double lat, double lon) {
         this.OACI = OACI;
         this.name = name;
         this.city = city;
@@ -60,20 +60,20 @@ public class Snowtam {
         this.country = country;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public void setLon(String lon) {
+    public void setLon(double lon) {
         this.lon = lon;
     }
 
-    public String getLat() {
+    public double getLat() {
 
         return lat;
     }
 
-    public String getLon() {
+    public double getLon() {
         return lon;
     }
 }
