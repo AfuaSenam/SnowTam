@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,6 +20,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.snowtam.valen.snowtamv0.R;
 import com.snowtam.valen.snowtamv0.model.Snowtam;
+import com.snowtam.valen.snowtamv0.model.Snowtam2;
 
 import java.util.ArrayList;
 
@@ -37,8 +40,10 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
     //LocationRequest mLocationRequest;
 
     private int id;
-    private ArrayList<Snowtam> snowtams;
-    private Snowtam selectedSnowtam;
+    private ArrayList<Snowtam2> snowtams;
+    private Snowtam2 selectedSnowtam;
+
+    private TextView TV_name;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,6 +54,8 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
         snowtams = MainActivity.getSnowtams();
         Intent intent = getIntent();
         id = intent.getIntExtra(MainActivity.ID_SNOWTAM, 0);
+
+        TV_name = (TextView) findViewById(R.id.name_airport);
 
         for(int i = 0; i < snowtams.size(); i++){
             if(id == snowtams.get(i).getId()){
@@ -64,6 +71,13 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        String aff = selectedSnowtam.getOACI();
+        if(!selectedSnowtam.getAirport().getNom().equals("undefine"))
+                aff +=  " - " + selectedSnowtam.getAirport().getNom();
+        TV_name.setText(aff);
+
+
     }
 
     public boolean checkLocationPermission() {
@@ -101,9 +115,11 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(selectedSnowtam.getLat(), selectedSnowtam.getLon());
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng pos = new LatLng(selectedSnowtam.getAirport().getLat(), selectedSnowtam.getAirport().getLon());
+        mMap.addMarker(new MarkerOptions().position(pos).title("Marker on " + selectedSnowtam.getOACI()));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(pos));
+        float zoomLevel = 13;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, zoomLevel));
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
     }
 }

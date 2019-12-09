@@ -77,7 +77,8 @@
                 android:layout_weight="0.9"
                 android:layout_height="match_parent"
                 android:minWidth="200dp"
-                android:shadowColor="@color/colorAccent"/>
+                android:shadowColor="@color/colorAccent"
+                android:inputType="textCapCharacters"/>
 
         </LinearLayout>
 

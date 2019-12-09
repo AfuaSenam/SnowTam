@@ -1,13 +1,25 @@
 package com.snowtam.valen.snowtamv0.model;
 
+import android.nfc.Tag;
+import android.util.Log;
+
+import com.snowtam.valen.snowtamv0.app.MainActivity;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Snowtam2 {
 
+    private static String TAG = "Snowtam2Class";
+    private int space = 2; //3 espace, 2 sans espace
+
+    private int id;
+
     // https://gist.github.com/tdreyno/4278655
 
     private String code;
+
+    private Airport airport;
 
     // A)
     private String OACI;
@@ -21,51 +33,64 @@ public class Snowtam2 {
     private String A, B;
     private String decode;
 
-
-
-    public Snowtam2(String code) {
+    public Snowtam2(String code, int id) {
+        this.id = id;
+        //this.OACI = OACI;
         this.code = code;
-        OACI = code.substring(code.indexOf(")") + 1, code.indexOf("\n"));
-        code = code.substring(code.indexOf("\n") + 1);
-        date = DecodeB(code);
-        code = code.substring(code.indexOf("\n") + 1);
 
-        decode = OACI + "\n";
-        decode += date + "\n";
+        if(code.contains("A) "))
+            space = 3;
+        OACI = code.substring(code.indexOf("A)") + space, code.indexOf("B)") - 1);
+
+        airport = getAirportByOACI(OACI);
+        if(airport == null)
+            airport = new Airport("undefine", "undefine", "undefine", OACI, (double)0, (double)0);
+
+        date = DecodeB(code.substring(code.indexOf("B)") + space, code.indexOf("C)") - 1));
+
+        decode = "A) " + OACI + " - " + airport.getNom() + "\n";
+        decode += "B) " + date + "\n";
         decode += "\n";
+
 
         int nbC = compterOccurrences(code, "C) ");
         String C, F, G, H;
         Piste piste;
-        pistes = new ArrayList<Piste>();
+        pistes = new ArrayList<>();
         for(int i = 0; i < nbC; i++){
-            C = code.substring(code.indexOf("C"), code.indexOf(" "));
-            code = code.substring(code.indexOf(" "));
-            F = code.substring(code.indexOf("F"), code.indexOf(" "));
-            code = code.substring(code.indexOf(" "));
-            G = code.substring(code.indexOf("G"), code.indexOf(" "));
-            code = code.substring(code.indexOf(" "));
-            H = code.substring(code.indexOf("H"), code.indexOf(" "));
-            code = code.substring(code.indexOf(" "));
+            C = code.substring(code.indexOf("C)") + space, code.indexOf("F)") - 1);
+            F = code.substring(code.indexOf("F)") + space, code.indexOf("G)") - 1);
+            G = code.substring(code.indexOf("G)") + space, code.indexOf("H)") - 1);
+            H = code.substring(code.indexOf("H)") + space, code.indexOf("N)") - 1);
             piste = new Piste(C, F, G, H);
             pistes.add(piste);
             decode += piste.getDecode() + "\n";
             decode += "\n";
         }
+        Log.i(TAG, "decode -> " + decode);
 
 
     }
 
     private String DecodeB(String X){
-        code = code.substring(code.indexOf(")") + 1);
-        String mois = MONTHS[Integer.parseInt(code.substring(0, 2)) - 1];
-        code = code.substring(2);
-        String jour = code.substring(0, 2);
-        code = code.substring(2);
-        String heure = code.substring(0, 2);
-        code = code.substring(2);
-        String min = code.substring(0, 2);
+        Log.i(TAG, "X -> " + X);
+        Log.i(TAG, "Integer.parseInt(X.substring(0, 2)) - 1 -> " + (Integer.parseInt(X.substring(0, 2)) - 1));
+        String mois = MONTHS[Integer.parseInt(X.substring(0, 2)) - 1];
+        X = X.substring(2);
+        String jour = X.substring(0, 2);
+        X = X.substring(2);
+        String heure = X.substring(0, 2);
+        X = X.substring(2);
+        String min = X.substring(0, 2);
         return jour + " " + mois + " AT " + heure + "h" + min;
+    }
+
+    public String getOACI() {
+        return OACI;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getCode() {
@@ -74,6 +99,10 @@ public class Snowtam2 {
 
     public String getDecode() {
         return decode;
+    }
+
+    public Airport getAirport() {
+        return airport;
     }
 
     private int compterOccurrences(String maChaine, String recherche)
@@ -87,5 +116,17 @@ public class Snowtam2 {
             maChaine = maChaine.substring(maChaine.indexOf(recherche) + 1);
         }
         return nb;
+    }
+
+
+
+
+    public Airport getAirportByOACI(String OACI) {
+        Airport airport = null;
+        for(int i = 0; i < MainActivity.airports.size(); i++){
+            if(MainActivity.airports.get(i).getOACI().equals(OACI))
+                return MainActivity.airports.get(i);
+        }
+        return airport;
     }
 }

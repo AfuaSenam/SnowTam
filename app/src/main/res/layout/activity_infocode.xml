@@ -65,7 +65,8 @@
                 android:layout_height="match_parent"
                 android:text="@string/button_map"
                 android:textColor="@color/colorPrimary"
-                android:background="@color/colorPrimaryDark"/>
+                android:background="@color/colorPrimaryDark"
+                android:onClick="onClickPlan"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -82,7 +83,9 @@
                 android:layout_height="match_parent"
                 android:text="@string/button_code"
                 android:textColor="@color/colorPrimary"
-                android:background="@color/colorPrimaryDark"/>
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/button_code"
+                android:onClick="onClickCode"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -90,159 +93,48 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:cardElevation="6dp"
         app:cardCornerRadius="12dp"
         android:layout_margin="12dp">
 
-        <ScrollView
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/view">
+            android:orientation="vertical"
+            android:layout_margin="12dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/view"
+                android:layout_weight="0.9">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/snowtam_code"/>
+
+            </ScrollView>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:text="@string/code"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/snowtam_code"
-                        android:text="@string/code"
-                        android:gravity="end"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:text="@string/name"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/snowtam_name"
-                        android:text="@string/snowtam_name"
-                        android:gravity="end"/>
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:text="@string/city"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/snowtam_city"
-                        android:gravity="end"/>
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:text="@string/country"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/snowtam_country"
-                        android:gravity="end"/>
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lat"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/snowtam_lat"
-                        android:text="@string/lat"
-                        android:gravity="end"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lon"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/snowtam_lon"
-                        android:text="@string/lon"
-                        android:gravity="end"/>
-
-                </LinearLayout>
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:id="@+id/layout_swipe"
+                android:layout_weight="0.1">
 
             </LinearLayout>
 
-        </ScrollView>
+        </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
+    <!--androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="6dp"
@@ -258,7 +150,7 @@
             android:background="@color/colorPrimaryDark"
             android:onClick="onClickBack"/>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView-->
 
 
 
