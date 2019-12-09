@@ -21,9 +21,6 @@ import com.android.volley.toolbox.Volley;
 import com.snowtam.valen.snowtamv0.R;
 import com.snowtam.valen.snowtamv0.adaptater.StAdapter;
 import com.snowtam.valen.snowtamv0.model.Airport;
-import com.snowtam.valen.snowtamv0.model.DataJson;
-import com.snowtam.valen.snowtamv0.model.SnotamListDetails;
-import com.snowtam.valen.snowtamv0.model.Snowtam;
 import com.snowtam.valen.snowtamv0.model.Snowtam2;
 
 import org.json.JSONArray;
@@ -36,9 +33,7 @@ import java.util.ArrayList;
 
 import androidx.cardview.widget.CardView;
 
-import static android.content.ContentValues.TAG;
 import static android.icu.lang.UCharacter.toUpperCase;
-import static android.os.SystemClock.sleep;
 
 public class MainActivity extends Activity {
 
@@ -111,14 +106,14 @@ public class MainActivity extends Activity {
 
     private void AddSnowtam(String code) {
         if (code.equals("") || code.length() != 4) {
-            String toastTxt = "Code invalide\n" + "(4 caractères)";
+            String toastTxt = getString(R.string.toast_invalid_snowtam);
             Toast toast = Toast.makeText(getApplicationContext(), toastTxt, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP, 0, 0);
             toast.show();
             return;
         }
         if(Exist(toUpperCase(code))){
-            String toastTxt = "Code déjà exitant";
+            String toastTxt = getString(R.string.toast_existing_snowtam);
             Toast toast = Toast.makeText(getApplicationContext(), toastTxt, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP, 0, 0);
             toast.show();
@@ -204,7 +199,7 @@ public class MainActivity extends Activity {
                 if(jsonresponse != null)
                     CreerNouvSnowtam(jsonresponse);
                 else{
-                    String toastTxt = "Code introuvable";
+                    String toastTxt = getString(R.string.toast_notfound_snowtam);
                     Toast toast = Toast.makeText(getApplicationContext(), toastTxt, Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP, 0, 0);
                     toast.show();

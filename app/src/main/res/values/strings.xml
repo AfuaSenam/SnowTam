@@ -1,28 +1,20 @@
 <resources>
-    <string name="app_name">SnowtamV0</string>
+    <string name="app_name" translatable="false">SnowtamV0</string>
 
     <!--********MAIN********-->
-    <string name="main_title">Snowtam</string>
+    <string name="main_title" translatable="false">Snowtam</string>
     <string name="nb_snowtam">snowtams enregistrés</string>
-    <string name="button_see">Voir</string>
-    <string name="button_delete">Supprimer</string>
-    <string name="button_search">Rechercher</string>
+    <string name="toast_existing_snowtam">"Code déjà exitant"</string>
+    <string name="toast_invalid_snowtam">"Code invalide\n(4 caractères)"</string>
+    <string name="toast_notfound_snowtam">"Code introuvable"</string>
 
     <!--********INFOCODE********-->
-    <string name="snowtam_name">Paris Charles de Gaulle</string>
     <string name="button_map">Plan</string>
-    <string name="button_code">Code</string>
-    <string name="button_return">Retour</string>
+    <string name="button_code" translatable="false">Code</string>
     <string name="information">Informations</string>
-    <string name="code">OACI :</string>
-    <string name="name">Nom :</string>
-    <string name="city">Ville :</string>
-    <string name="country">Pays :</string>
-    <string name="lat">Latitude :</string>
-    <string name="lon">Longitude :</string>
 
     <!--********MAP********-->
-    <string name="google_maps_key">AIzaSyC0wZWPoZu7yuW_bIEhq6dG5W4ZiMFolC0</string>
-    <string name="title_activity_google_maps">Map</string>
+    <string name="google_maps_key" translatable="false">AIzaSyC0wZWPoZu7yuW_bIEhq6dG5W4ZiMFolC0</string>
+    <string name="title_activity_google_maps" translatable="false">Map</string>
 
 </resources>

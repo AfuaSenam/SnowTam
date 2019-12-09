@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nb_snowtam">registered snowtams</string>
+    <string name="button_map">Map</string>
+    <string name="information">Information</string>
+    <string name="toast_existing_snowtam">Code already existing</string>
+    <string name="toast_invalid_snowtam">Invalid code\\n(4 characters)</string>
+    <string name="toast_notfound_snowtam">Not found code</string>
+</resources>
