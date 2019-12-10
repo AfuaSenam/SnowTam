@@ -9,7 +9,7 @@ import com.snowtam.valen.snowtamv0.R;
 
 public class ScreenSplash extends Activity {
 
-    private final static int SPLASH_TIME = 1000;
+    private final static int SPLASH_TIME = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

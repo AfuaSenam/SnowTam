@@ -46,14 +46,12 @@
                 android:onClick="onClickLayout">
 
                 <TextView
-                    android:text="Paris CDG"
                     android:textSize="20dp"
                     android:id="@+id/snotamname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:text="Paris"
                     android:textSize="15dp"
                     android:id="@+id/snotamcity"
                     android:layout_below="@id/snotamname"
@@ -61,7 +59,6 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:text="France"
                     android:textSize="15dp"
                     android:id="@+id/snotamcountry"
                     android:layout_below="@id/snotamcity"

@@ -52,6 +52,9 @@ public class Snowtam2 {
         decode += "B) " + date + "\n";
         decode += "\n";
 
+        code = code.substring(code.indexOf("A)"));
+        code = code.substring(code.indexOf("\n") + 1);
+
 
         int nbC = compterOccurrences(code, "C) ");
         String C, F, G, H;
@@ -62,12 +65,15 @@ public class Snowtam2 {
             F = code.substring(code.indexOf("F)") + space, code.indexOf("G)") - 1);
             G = code.substring(code.indexOf("G)") + space, code.indexOf("H)") - 1);
             H = code.substring(code.indexOf("H)") + space, code.indexOf("N)") - 1);
+            code = code.substring(code.indexOf("N)"));
+            code = code.substring(code.indexOf("\n") + 1);
             piste = new Piste(C, F, G, H);
             pistes.add(piste);
             decode += piste.getDecode() + "\n";
             decode += "\n";
         }
         Log.i(TAG, "decode -> " + decode);
+        decode += code;
 
 
     }
