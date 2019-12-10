@@ -139,10 +139,13 @@ public class Infocode extends Activity {
     }
 
     void InitLayoutSwipe(){
+        /*
         int n = 3;
         if(snowtams.size() < 3){
             n = snowtams.size();
         }
+        */
+        int n = snowtams.size();
         for(int i = 0; i < n; i++){
             ImageView imageView = new ImageView(this);
             imageView.setImageResource(R.mipmap.swipe_unselec);
@@ -165,6 +168,7 @@ public class Infocode extends Activity {
         for(int i = 0; i < imageViews.size(); i++){
             imageViews.get(i).setImageResource(R.mipmap.swipe_unselec);
         }
+        /*
         if(snowtams.indexOf(selectedSnowtam) == 0){
             imageViews.get(0).setImageResource(R.mipmap.swipe_selec);
             return;
@@ -173,7 +177,8 @@ public class Infocode extends Activity {
             imageViews.get(min(2, snowtams.size()-1)).setImageResource(R.mipmap.swipe_selec);
             return;
         }
-        imageViews.get(1).setImageResource(R.mipmap.swipe_selec);
+        */
+        imageViews.get(snowtams.indexOf(selectedSnowtam)).setImageResource(R.mipmap.swipe_selec);
 
     }
 }

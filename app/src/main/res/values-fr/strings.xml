@@ -6,4 +6,5 @@
     <string name="toast_existing_snowtam">Code déjà exitant</string>
     <string name="toast_invalid_snowtam">Code invalide\\n(4 caractères)</string>
     <string name="toast_notfound_snowtam">Code introuvable</string>
+    <string name="hint_OACI">OACI</string>
 </resources>

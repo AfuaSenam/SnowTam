@@ -78,7 +78,8 @@
                 android:layout_height="match_parent"
                 android:minWidth="200dp"
                 android:shadowColor="@color/colorAccent"
-                android:inputType="textCapCharacters"/>
+                android:inputType="textCapCharacters"
+                android:hint="@string/hint_OACI"/>
 
         </LinearLayout>
 
