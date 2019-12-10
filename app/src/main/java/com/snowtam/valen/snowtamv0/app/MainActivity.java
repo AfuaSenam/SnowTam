@@ -43,8 +43,8 @@ public class MainActivity extends Activity {
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest;
 
-    private String keySnowtam="6fb5e7d0-0c2f-11ea-aaad-bf68a54f0188";   //Utilisée pour tests
-    //private String keySnowtam="41215a70-1b2b-11ea-9119-0d1c60ba0237"; //Non utilisée
+    //private String keySnowtam="6fb5e7d0-0c2f-11ea-aaad-bf68a54f0188";   //Utilisée pour tests
+    private String keySnowtam="41215a70-1b2b-11ea-9119-0d1c60ba0237"; //Non utilisée
     //private String location="ENBR";
     private String url="https://api.myjson.com/bins/pag12";
     private String urlApi ="https://v4p4sz5ijk.execute-api.us-east-1.amazonaws.com/anbdata/states/notams/notams-realtime-list?api_key="+keySnowtam+"&format=json&criticality=&locations=";//+location;
